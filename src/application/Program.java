@@ -16,11 +16,11 @@ public class Program {
 		int columns = sc.nextInt();
 		sc.nextLine();
 		
-		double[][] matriz = new double[lines][columns];
-		
+		int[][] matriz = new int[lines][columns];
+
 		for(int i = 0; i < lines; i++) {
 			for(int j = 0; j < columns; j++) {
-				matriz[i][j] = i + j + 0.5; 
+				matriz[i][j] = i + j; 
 			}
 		}
 
@@ -32,20 +32,18 @@ public class Program {
 			System.out.println();
 		}
 		
-		System.out.print("Multiplicar números da matriz por: ");
-		double escalar = sc.nextDouble();
-		sc.nextLine();
+		int[][] transposta = new int[columns][lines];
 		
-		for(int i = 0; i < lines; i++) {
-			for(int j = 0; j < columns; j++) {
-				matriz[i][j] *= escalar; 
+		for(int i = 0; i < columns; i++) {
+			for(int j = 0; j < lines; j++) {
+				transposta[i][j] = matriz[j][i]; 
 			}
 		}
 		
 		System.out.println();
-		for(int i = 0; i < lines; i++) {
-			for(int j = 0; j < columns; j++) {
-				System.out.print(matriz[i][j] + " "); 
+		for(int i = 0; i < columns; i++) {
+			for(int j = 0; j < lines; j++) {
+				System.out.print(transposta[i][j] + " "); 
 			}
 			System.out.println();
 		}
